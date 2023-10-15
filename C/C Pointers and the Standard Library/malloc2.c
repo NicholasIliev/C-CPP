@@ -2,6 +2,11 @@
 #include <stdlib.h>
 
 int main(int argc, char *argv[]) {
+    if (argc != 3) {
+        printf("Usage: %s <number_of_rows> <number_of_columns>\n", argv[0]);
+        return 1; 
+    }
+
     int x = atoi(argv[1]); // Number of rows
     int y = atoi(argv[2]); // Number of columns
     int xy = x * y;
