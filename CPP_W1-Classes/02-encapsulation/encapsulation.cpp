@@ -1,37 +1,56 @@
 #include <iostream>
 
 class Rectangle {
-public:
+private:
     float length;
     float width;
+
+public:
+    Rectangle(float length, float width) {
+        this->length = length;
+        this->width = width;
+    }
+
+    float get_length() const {
+        return length;
+    }
+
+    float get_width() const {
+        return width;
+    }
+
+    float perimeter() const {
+        return 2.0 * (length + width);
+    }
 };
 
 class Circle {
-public:
+private:
     float radius;
+
+public:
+    Circle(float radius) {
+        this->radius = radius;
+    }
+
+    float get_radius() const {
+        return radius;
+    }
+
+    float circumference() const {
+        return 2.0 * 3.14 * radius;
+    }
 };
 
-float rectangle_perimeter(Rectangle *r) {
-    return 2.0 * (r->length + r->width);
-}
+int main() {
+    Rectangle r(10, 20);
+    Circle c(1);
 
-float circle_circumference(Circle *c) {
-    return 2.0 * 3.14 * c->radius;
-}
+    std::cout << "Rectangle l: " << r.get_length() << ", w: " << r.get_width();
+    std::cout << ", perimeter: " << r.perimeter() << "\n";
 
-int main(int argc, char **argv) {
-    Rectangle r;
-    Circle c;
+    std::cout << "Circle r: " << c.get_radius();
+    std::cout << ", circumference: " << c.circumference() << "\n";
 
-    r.length = 10;
-    r.width = 20;
-
-    c.radius = 1;
-
-	std::cout << "Rectangle l: " << r.length << ", w: " << r.width;
-	std::cout << ", perimeter: " << rectangle_perimeter(&r) << "\n";
-
-	std::cout << "Circle r: " << c.radius;
-	std::cout << ", circumference: " << circle_circumference(&c) << "\n";
     return 0;
 }
