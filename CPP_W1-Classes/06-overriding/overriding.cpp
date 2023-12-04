@@ -9,11 +9,16 @@ public:
 };
 
 class Car : public Vehicle {
-    /* ... */
+public:
+    int get_number_of_wheels() override{
+        return 4;
+    }
 };
 
 class Bike : public Vehicle {
-    /* ... */
+    int get_number_of_wheels() override{
+        return 2;
+    }
 };
 
 int main(int argc, char **argv) {
