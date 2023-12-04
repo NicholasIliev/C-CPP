@@ -22,11 +22,16 @@ private:
     int val;
 public:
     TopLevel(int x, int y, int val);
+    ~TopLevel(); // Destructor
     void print();
 };
 
 TopLevel::TopLevel(int x, int y, int val) : 
     p{new Pair(x, y)}, val{val} {}
+
+TopLevel::~TopLevel() {
+    delete p; // Release the dynamically allocated Pair object
+}
 
 void TopLevel::print() {
     std::cout << "Toplevel val: " << val << ", with pair:\n";
