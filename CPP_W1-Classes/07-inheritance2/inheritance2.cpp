@@ -4,9 +4,10 @@ class Base {
 private:
     int x;
     int y;
-    void base_method();
+    
 public:
     Base(int x, int y);
+    void base_method();
 };
 
 class Derived : public Base {
